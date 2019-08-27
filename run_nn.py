@@ -8,7 +8,7 @@ import numpy as np
 import unicodedata
 import tensorflow as tf
 
-PATH_TO_FILE = "./dataset/cmn_trad_seg_ukn.txt"
+PATH_TO_FILE = "./dataset/CMN_TRAD_SEG.txt"
 
 def train():
     print("train")
