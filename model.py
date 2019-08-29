@@ -3,6 +3,7 @@ import tensorflow as tf
 class NNConfig(object):
     # NN Configuration
     def __init__(self, inp_lang, targ_lang):
+        self.EPOCHS = 10
         self.BATCH_SIZE = 64
         self.EMBEDDING_DIM = 256
         self.UNITS = 1024
