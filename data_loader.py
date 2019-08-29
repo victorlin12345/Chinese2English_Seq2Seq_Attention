@@ -73,3 +73,11 @@ def convert(lang, tensor):
         if t!=0:
             print ("%d ----> %s" % (t, lang.index_word[t]))
 
+
+# Prepare word2index file for test or translate
+def save_index2word(lang, file_name):
+    file = open(file_name, "w")
+    for index, word in lang.index_word.items():
+        file.write(str(index)+"\t"+word+"\n")
+    file.close()
+
