@@ -3,6 +3,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import re
 import os
 import io
+import jieba
 import tensorflow as tf
 
 def preprocess_eng_sentence(w):
@@ -80,4 +81,13 @@ def save_index2word(lang, file_name):
     for index, word in lang.index_word.items():
         file.write(str(index)+"\t"+word+"\n")
     file.close()
+
+# seg the chinese sentence
+def seg2words(original_sentense):
+    jieba.load_userdict("dataset/jieba_dict.txt")
+    words = jieba.cut(original_sentense, cut_all=False)
+    return_word=''
+    for w in words:
+        return_word = return_word+' '+w
+    return return_word.lstrip()
 
