@@ -25,8 +25,8 @@ def train():
     config = NNConfig(inp_lang, targ_lang)
     
     # Save i2w file for test and translate
-    save_index2word(inp_lang, "input_dict.txt")
-    save_index2word(targ_lang, "target_dict.txt")
+    save_index2word(inp_lang, "./dataset/input_dict.txt")
+    save_index2word(targ_lang, "./dataset/target_dict.txt")
 
     
     # Setup the trainning data batch
