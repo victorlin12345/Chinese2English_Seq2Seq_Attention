@@ -1,3 +1,11 @@
 .DS_Store
 .vscode
 __pycache__
+checkpoints/training_checkpoints/ckpt-1.data-00000-of-00001
+checkpoints/training_checkpoints/ckpt-2.data-00000-of-00001
+checkpoints/training_checkpoints/ckpt-3.data-00000-of-00001
+checkpoints/training_checkpoints/ckpt-4.data-00000-of-00001
+checkpoints/training_checkpoints/ckpt-1.index
+checkpoints/training_checkpoints/ckpt-2.index
+checkpoints/training_checkpoints/ckpt-3.index
+checkpoints/training_checkpoints/ckpt-4.index
