@@ -42,10 +42,6 @@ def create_dataset(path, num_examples):
 
     return zip(*word_pairs)
 
-# Get the max length of sentence in the list 
-# def max_length(tensor):
-#     return max(len(t) for t in tensor)
-
 # Transform the word to token.
 def tokenize(lang):
     # Tokenizer: notice word token pairs always same for same corpus 
@@ -82,12 +78,48 @@ def save_index2word(lang, file_name):
         file.write(str(index)+"\t"+word+"\n")
     file.close()
 
+def load_word2index(file_name):
+    word2index = {}
+    for line in open(file_name, "r"):
+        index, word = line.strip().split("\t")
+        word2index[word] = int(index)
+    return word2index
+
+def load_index2word(file_name):
+    index2word = {}
+    for line in open(file_name, "r"):
+        index, word = line.strip().split("\t")
+        index2word[int(index)] = word
+    return index2word
+
+# Get the max length of sentence in the list 
+def save_max_length(inp_tensor, targ_tensor, vocab_inp_size, vocab_targ_size, file_name):
+    file = open(file_name, "w")
+    inp_len = max(len(t) for t in inp_tensor)
+    targ_len = max(len(t) for t in targ_tensor)
+    file.write("INPUT\t"+str(inp_len)+"\n")
+    file.write("INPUT_VOCAB\t"+str(vocab_inp_size)+"\n")
+    file.write("TARGET\t"+str(targ_len)+"\n")
+    file.write("TARGET_VOCAB\t"+str(vocab_targ_size)+"\n")
+    file.close()
+
+def load_max_length(file_name):
+    MAX_LEN = {}
+    for line in open(file_name, "r"):
+        k, v = line.strip().split("\t")
+        MAX_LEN[k] = int(v)
+    return MAX_LEN["INPUT"], MAX_LEN["INPUT_VOCAB"], MAX_LEN["TARGET"], MAX_LEN["TARGET_VOCAB"]
+
+def init_jieba_dict():
+    jieba.load_userdict("dataset/jieba_dict.txt")
+
 # seg the chinese sentence
 def seg2words(original_sentense):
-    jieba.load_userdict("dataset/jieba_dict.txt")
     words = jieba.cut(original_sentense, cut_all=False)
     return_word=''
     for w in words:
         return_word = return_word+' '+w
     return return_word.lstrip()
+
+
 
