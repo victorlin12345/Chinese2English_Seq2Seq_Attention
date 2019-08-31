@@ -157,7 +157,7 @@ def translate():
         # the predicted ID is fed back into the model
         dec_input = tf.expand_dims([predicted_id], 0)
     
-    print("\n"+original_sentence+"->"+result.rstrip(" <end>")+"\n")
+    print("\n"+"> "+original_sentence+"->"+result.rstrip(" <end>")+"\n")
 
 if __name__ == '__main__':
 
@@ -169,5 +169,3 @@ if __name__ == '__main__':
     
     if sys.argv[1] == 'translate':
         translate()
-
-        
