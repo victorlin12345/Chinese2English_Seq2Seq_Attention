@@ -6,6 +6,7 @@ Reference to the paper: [https://aclweb.org/anthology/D15-1166]
 ### Requirement
 Here are packages must be installed.
 ```sh
+$ git clone https://github.com/victorlin12345/Chinese2English_Seq2Seq_Attention.git
 $ pip install tensorflow==2.0.0-rc0 
 $ pip install jieba
 ```
