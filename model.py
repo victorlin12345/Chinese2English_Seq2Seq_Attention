@@ -2,13 +2,13 @@ import tensorflow as tf
 
 class NNConfig(object):
     # NN Configuration
-    def __init__(self, inp_lang, targ_lang):
+    def __init__(self, VOCAB_INP_SIZE, VOCAB_TARG_SIZE):
         self.EPOCHS = 10
         self.BATCH_SIZE = 64
         self.EMBEDDING_DIM = 256
         self.UNITS = 1024
-        self.VOCAB_INP_SIZE = len(inp_lang.word_index)+1
-        self.VOCAB_TARG_SIZE = len(targ_lang.word_index)+1
+        self.VOCAB_INP_SIZE = VOCAB_INP_SIZE
+        self.VOCAB_TARG_SIZE = VOCAB_TARG_SIZE
 
 
 class Encoder(tf.keras.Model):
